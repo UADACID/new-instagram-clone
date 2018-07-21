@@ -7,35 +7,34 @@ import tvIcon from '../assets/images/television.png';
 
 const { width, height } = Dimensions.get('window');
 
-const HeaderHome = ({ navigation }) => {
+const HeaderInbox = ({ navigation }) => {
 
-  onPressCamera = () => () => {
-    navigation.navigate('Camera')
+  onPressBack = () => () => {
+    navigation.navigate('Home');
   };
 
-  onPressPlane = () => () => {
-    navigation.navigate('Inbox')
+  onPressAdd = () => () => {
+    alert('not yet');
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.leftItem}>
-        <TouchableOpacity onPress={onPressCamera()}>
-          <Icon name="ios-camera-outline" style={styles.camera} />
+        <TouchableOpacity onPress={onPressBack()}>
+          <Icon name="md-arrow-back" style={styles.backIcon} />
         </TouchableOpacity>
-        <Text style={styles.title}>Outstagram</Text>
+        <Text style={styles.title}>Direct</Text>
       </View>
       <View style={styles.rightItem}>
-        <Image source={tvIcon} style={styles.tv}/>
-        <TouchableOpacity onPress={onPressPlane()}>
-          <Icon name="ios-paper-plane-outline" style={styles.plane} />
+        <TouchableOpacity onPress={onPressAdd()}>
+          <Icon name="md-add" style={styles.add} />
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default withNavigation(HeaderHome);
+export default withNavigation(HeaderInbox);
 
 const styles = StyleSheet.create({
   container: {
@@ -56,11 +55,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
-  camera: {
-    fontSize: 40,
+  backIcon: {
+    fontSize: 35,
     paddingHorizontal: 16
   },
-  plane: {
+  add: {
     fontSize: 30,
     paddingHorizontal: 16
   },
@@ -69,9 +68,8 @@ const styles = StyleSheet.create({
     width: 25
   },
   title: {
-    fontFamily: 'Billabong',
-    fontSize: 30,
+    fontSize: 20,
     color: '#000',
-    marginTop: 15
+    marginLeft: 20
   }
 });

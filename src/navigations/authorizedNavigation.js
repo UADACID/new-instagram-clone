@@ -1,5 +1,6 @@
 import { createMaterialTopTabNavigator, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
-
+import { Icon } from 'native-base';
+import React from 'react';
 
 import Camera from '../screens/Camera/Camera.container';
 import Inbox from '../screens/Inbox/Inbox.container';
@@ -19,18 +20,52 @@ const ProfileStackNavigation = createStackNavigator({ Profile });
 const TabDashboard = createBottomTabNavigator({
   Home: {
     screen: HomeStackNavigation,
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const iconName = focused ? 'ios-home' : 'ios-home-outline';
+        return <Icon name={iconName} />;
+      },
+    })
   },
   Search: {
-    screen: SearchStackNavigation
+    screen: SearchStackNavigation,
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const iconName = focused ? 'ios-search' : 'ios-search-outline';
+        return <Icon name={iconName} />;
+      },
+    })
   },
   AddPhoto: {
-    screen: AddPhototackNavigation
+    screen: AddPhototackNavigation,
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const iconName = focused ? 'md-add' : 'ios-add-outline';
+        return <Icon name={iconName} />;
+      },
+    })
   },
   Love: {
-    screen: LoveStackNavigation
+    screen: LoveStackNavigation,
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const iconName = focused ? 'ios-heart' : 'ios-heart-outline';
+        return <Icon name={iconName} />;
+      },
+    })
   },
   Profile: {
-    screen: ProfileStackNavigation
+    screen: ProfileStackNavigation,
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const iconName = focused ? 'ios-contact' : 'ios-contact-outline';
+        return <Icon name={iconName} />;
+      },
+    })
+  }
+},{
+  tabBarOptions : {
+    showLabel : false
   }
 })
 
@@ -42,7 +77,7 @@ const AppNavigation = createMaterialTopTabNavigator({
     screen: TabDashboard
   },
   Inbox: {
-    screen: Inbox
+    screen: createStackNavigator({ Inbox })
   }
 }, {
   initialRouteName: 'TabDashboard',
