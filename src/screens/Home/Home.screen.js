@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, StatusBar, ScrollView, FlatList } from 'react-native';
 
 import styles from './Home.style';
 import HeaderHome from '../../components/HeaderHome';
+import CircleStory from '../../components/CircleStory';
+import FeedItem from '../../components/FeedItem';
 
 export default class Home extends Component {
 
@@ -14,17 +16,42 @@ export default class Home extends Component {
 
   }
 
+  _keyExtractor = (item, index) => index.toString();
+
+  _renderItem = ({item}) => (
+    <FeedItem
+      title={item.title}
+      uri={item.uri}
+      location={item.location}
+      photo={item.photo}
+    />
+  );
+
   render(){
+    const { feeds, stories } = this.props;
     return (
+      <ScrollView>
       <View style={styles.container}>
         <StatusBar
           backgroundColor="#999"
           barStyle="light-content"
         />
-        <Text style={{ fontFamily: 'Billabong', fontSize: 50, color: '#000' }} onPress={() => this.props.navigation.navigate('Camera')}>
-          Instagarm
-        </Text>
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {
+              stories.map((item, index) => (
+                <CircleStory key={index} uri={item.uri} name={item.name} />
+              ))
+            }
+          </ScrollView>
+        </View>
+        <FlatList
+          data={feeds}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+        />
       </View>
+      </ScrollView>
     );
   }
 }
