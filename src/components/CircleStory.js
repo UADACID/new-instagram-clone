@@ -8,7 +8,7 @@ export default class CircleStory extends Component {
     return (
       <View style={styles.container}>
         <Image style={styles.image} source={{ uri }}/>
-        <Text style={styles.title}>name</Text>
+        <Text style={styles.title}>{name}</Text>
       </View>
     );
   }

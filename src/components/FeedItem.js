@@ -4,10 +4,31 @@ import { Icon } from 'native-base';
 
 const { width } = Dimensions.get('window');
 
+const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum condimentum quam, nec efficitur mauris iaculis id. Vivamus velit purus, ornare vitae quam et, accumsan maximus sem. In ultrices nunc quis mauris lacinia, at tincidunt sapien mollis. Sed eget porta risus, vel varius nibh. Nunc porta, enim sed fringilla mattis,';
+
 export default class FeedItem extends Component {
+
+  state = {
+    love: false,
+    showMore: true
+  }
+
+  onPressLove = () => {
+    this.setState({
+      love: !this.state.love
+    })
+  }
+
+  onShowMore = () => {
+    this.setState({
+      showMore: false
+    })
+  }
 
   render(){
     const { title, uri, location, photo } = this.props;
+    const { love, showMore } = this.state;
+    const buttonShowMore = (<Text onPress={this.onShowMore} style={styles.showmore}>show more</Text>);
     return (
       <View style={styles.container}>
         <View style={styles.containerHeader}>
@@ -17,9 +38,12 @@ export default class FeedItem extends Component {
               <Text style={styles.title}>
                 {title}
               </Text>
-              <Text>
-                {location}
-              </Text>
+              {
+                location && location !== '' ?
+                  <Text>
+                    {location}
+                  </Text> : null
+              }
             </View>
           </View>
           <TouchableOpacity style={styles.buttonMore}>
@@ -29,8 +53,8 @@ export default class FeedItem extends Component {
         <Image style={styles.containerBody} source={{ uri }}/>
         <View style={styles.containerFooter}>
           <View style={styles.footerLeftItem}>
-            <TouchableOpacity style={styles.defaultIcon}>
-              <Icon name="ios-heart-outline" style={{color: '#000'}}/>   
+            <TouchableOpacity style={styles.defaultIcon} onPress={this.onPressLove}>
+              <Icon name={`ios-heart${love ? '' : '-outline'}`} style={{color: love ? 'red' : '#000'}}/>   
             </TouchableOpacity>
             <TouchableOpacity style={styles.defaultIcon}>
               <Icon name="ios-chatbubbles-outline" style={{color: '#000'}}/>   
@@ -46,7 +70,12 @@ export default class FeedItem extends Component {
         <View style={styles.containerDescription}>
           <Text style={styles.textLike}>1.290 tayangan</Text>
           <Text style={styles.textTitleBottom}>Pilot Gundam</Text>
-          <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum condimentum quam, nec efficitur mauris iaculis id. Vivamus velit purus, ornare vitae quam et, accumsan maximus sem. In ultrices nunc quis mauris lacinia, at tincidunt sapien mollis. Sed eget porta risus, vel varius nibh. Nunc porta, enim sed fringilla mattis,</Text>
+          {
+            showMore ? 
+            <Text>{description.substr(0, 100)}{` ....`}{buttonShowMore}</Text> :
+            <Text>{description}</Text>
+          }
+          
         </View>
       </View>
     );
@@ -116,5 +145,8 @@ const styles = StyleSheet.create({
   },
   textDescription: {
     color: '#000'
+  },
+  showmore: {
+    color: 'gray'
   }
 })
