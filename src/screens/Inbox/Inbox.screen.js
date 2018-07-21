@@ -1,0 +1,21 @@
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+
+import styles from './Inbox.style';
+
+export default class Inbox extends Component {
+
+  componentDidMount(){
+
+  }
+
+  render(){
+    return (
+      <View style={styles.container}>
+        <Text onPress={() => this.props.navigation.navigate('Home')}>
+          Inbox
+        </Text>
+      </View>
+    );
+  }
+}
