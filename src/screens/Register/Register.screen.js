@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View , Text } from 'react-native';
 
 import styles from './Register.style';
 
@@ -11,7 +11,11 @@ export default class Register extends Component {
 
   render(){
     return (
-      <View style={styles.container} />
+      <View style={styles.container}>
+        <Text onPress={() => this.props.navigation.navigate('AuthNavigation')}>
+          Register
+        </Text>
+      </View>
     );
   }
 }

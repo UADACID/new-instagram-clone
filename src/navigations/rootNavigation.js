@@ -6,11 +6,12 @@ import {
 import { connect } from 'react-redux';
 
 import UnAuthNavigation from './unauthorizedNavigation';
+import AuthNavigation from './authorizedNavigation';
 
 const RouteConfigs = {
-  // AuthNavigation: {
-  //   screen: AuthNavigation
-  // },
+  AuthNavigation: {
+    screen: AuthNavigation
+  },
   UnAuthNavigation: {
     screen: UnAuthNavigation
   }

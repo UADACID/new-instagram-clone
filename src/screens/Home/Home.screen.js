@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import styles from './Login.style';
+import styles from './Home.style';
 
-export default class Login extends Component {
+export default class Home extends Component {
 
   componentDidMount(){
 
@@ -13,7 +13,7 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <Text onPress={() => this.props.navigation.navigate('Register')}>
-          Login
+          Home
         </Text>
       </View>
     );
