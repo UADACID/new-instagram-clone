@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     borderColor: '#e0e0e0'
   },
   containerImage: {
-    height: 79,
-    width: 79,
+    height: 69,
+    width: 69,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 40,
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#c12184'
   },
   image: {
-    height: 75,
-    width: 75,
+    height: 65,
+    width: 65,
     borderRadius: 40,
   },
   title: {

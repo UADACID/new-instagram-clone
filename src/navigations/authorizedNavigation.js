@@ -45,7 +45,7 @@ const TabAddPhoto = createMaterialTopTabNavigator({
 })
 
 const HomeStackNavigation = createStackNavigator({ Home });
-const SearchStackNavigation = createStackNavigator({ Search });
+const SearchStackNavigation = createStackNavigator({ Search, Love1: Love }, { headerMode: 'float' });
 const AddPhototackNavigation = TabAddPhoto;
 const LoveStackNavigation = createStackNavigator({ Love });
 const ProfileStackNavigation = createStackNavigator({ Profile });
@@ -100,7 +100,8 @@ const TabDashboard = createBottomTabNavigator({
 },{
   tabBarOptions : {
     showLabel : false
-  }
+  },
+  initialRouteName: 'Search'
 })
 
 const AppNavigation = createMaterialTopTabNavigator({

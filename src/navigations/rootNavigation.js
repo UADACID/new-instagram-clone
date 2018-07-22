@@ -4,6 +4,7 @@ import {
   createReactNavigationReduxMiddleware
 } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
+import { BackHandler } from 'react-native';
 
 import UnAuthNavigation from './unauthorizedNavigation';
 import AuthNavigation from './authorizedNavigation';

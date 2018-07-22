@@ -7,7 +7,7 @@ import tvIcon from '../assets/images/television.png';
 
 const { width, height } = Dimensions.get('window');
 
-const HeaderAddPhoto = ({ navigation }) => {
+const HeaderAddPhoto = ({ navigation, title }) => {
 
   onPressBack = () => () => {
     const backAction = NavigationActions.back({
@@ -26,11 +26,11 @@ const HeaderAddPhoto = ({ navigation }) => {
         <TouchableOpacity onPress={onPressBack()}>
           <Icon name="ios-close-outline" style={styles.backIcon} />
         </TouchableOpacity>
-        <Text style={styles.title}>Galery</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
       <View style={styles.rightItem}>
         <TouchableOpacity onPress={onPressAdd()}>
-          <Text style={styles.rightText}>Selanjutnya</Text>
+          <Text style={styles.rightText}>{title === 'Gallery' ? 'Selanjutnya' : ''}</Text>
         </TouchableOpacity>
       </View>
     </View>
