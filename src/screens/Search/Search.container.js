@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     },
     {
       name: 'Humor',
-      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx2l42_tjfhB7IoZH3KGwTdiUFmEdZl3A6M0e8qBPbbfxqWps-iw'
+      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAmm1Y8MQeR1wIi2dAhXBN7yXZwFS24ZKHDGkJE33VQD6R5DBs'
     },
     {
       name: 'Music',
@@ -18,11 +18,11 @@ const mapStateToProps = state => ({
     },
     {
       name: 'Komik',
-      uri: 'https://img.duniaku.net/2016/03/Komik-Terlaris-Bulan-Februari-thumb.jpg'
+      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC3-G_zDVfuXDB0WBKAgF_xKuQi37SuX4z9IH0mn92R3MHO1gg'
     },
     {
       name: 'Game',
-      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLNXdb3V0K_KklBxDYemA63NqTkRRfE0PQDYi8aFNTXSwWlmuVA'
+      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOjwCSp4uzHU2e3ebUj_IrLfeD4D_nPgD6uYWCoFSE-bWw8deT'
     },
     {
       name: 'Otomotif',
