@@ -1,4 +1,4 @@
-import { createMaterialTopTabNavigator, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createTabNavigator, createMaterialTopTabNavigator, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 import React from 'react';
 
@@ -11,9 +11,42 @@ import AddPhoto from '../screens/AddPhoto/AddPhoto.screen';
 import Love from '../screens/Love/Love.screen';
 import Profile from '../screens/Profile/Profile.container';
 
+//TAB ADD PHOTO
+import Gallery from '../screens/Gallery/Gallery.container';
+import Foto from '../screens/Foto/Foto.container';
+import Video from '../screens/Video/Video.container';
+
+
+const TabAddPhoto = createMaterialTopTabNavigator({
+  Gallery: {
+    screen: createStackNavigator({ Gallery })
+  },
+  Foto: {
+    screen: createStackNavigator({ Foto })
+  },
+  Video: {
+    screen: createStackNavigator({ Video })
+  }
+}, {
+  tabBarPosition: 'bottom',
+  tabBarOptions: {
+    activeTintColor: '#000',
+    inactiveTintColor: '#999',
+    indicatorStyle: {
+      backgroundColor: '#000'
+    },
+    tabStyle: {
+      backgroundColor: '#fff'
+    },
+    style: {
+      backgroundColor: '#fff'
+    }
+  }
+})
+
 const HomeStackNavigation = createStackNavigator({ Home });
 const SearchStackNavigation = createStackNavigator({ Search });
-const AddPhototackNavigation = createStackNavigator({ AddPhoto });
+const AddPhototackNavigation = TabAddPhoto;
 const LoveStackNavigation = createStackNavigator({ Love });
 const ProfileStackNavigation = createStackNavigator({ Profile });
 
@@ -43,6 +76,7 @@ const TabDashboard = createBottomTabNavigator({
         const iconName = focused ? 'md-add' : 'ios-add-outline';
         return <Icon name={iconName} />;
       },
+      tabBarVisible: false,
     })
   },
   Love: {
