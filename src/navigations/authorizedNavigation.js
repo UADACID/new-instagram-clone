@@ -2,6 +2,8 @@ import { createTabNavigator, createMaterialTopTabNavigator, createBottomTabNavig
 import { Icon } from 'native-base';
 import React from 'react';
 
+import HeaderAddPhoto from '../components/HeaderAddPhoto';
+
 import Camera from '../screens/Camera/Camera.container';
 import Inbox from '../screens/Inbox/Inbox.container';
 
@@ -44,9 +46,22 @@ const TabAddPhoto = createMaterialTopTabNavigator({
   }
 })
 
+const TabAddPhotoStack = createStackNavigator({
+  TabAddPhoto: {
+    screen: TabAddPhoto,
+    navigationOptions: ({ navigation }) => {
+      const { state: { index = 0, routes = [] } } = navigation;
+      const title = routes[index].routeName;
+      return {
+        header: <HeaderAddPhoto title={title} />,
+      }
+    }
+  }
+})
+
 const HomeStackNavigation = createStackNavigator({ Home });
 const SearchStackNavigation = createStackNavigator({ Search, Love1: Love }, { headerMode: 'float' });
-const AddPhototackNavigation = TabAddPhoto;
+const AddPhototackNavigation = TabAddPhotoStack;
 const LoveStackNavigation = createStackNavigator({ Love });
 const ProfileStackNavigation = createStackNavigator({ Profile });
 

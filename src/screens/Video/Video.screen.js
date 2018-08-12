@@ -8,7 +8,7 @@ import styles from './Video.style';
 export default class Video extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    header: () => (<HeaderAddPhoto title="Video" />)
+    header: null
   })
 
   componentDidMount(){

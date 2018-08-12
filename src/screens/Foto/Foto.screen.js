@@ -8,11 +8,12 @@ import styles from './Foto.style';
 export default class Foto extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    header: () => (<HeaderAddPhoto title="Foto" />)
+    // header: () => (<HeaderAddPhoto title="Foto" />)
+    header: null
   })
 
   componentDidMount(){
-
+    
   }
 
   render(){

@@ -23,7 +23,7 @@ const RouteConfigs = {
 }
 
 const SwitchNavigatorConfig = {
-  // initialRouteName: null
+  initialRouteName: 'AuthNavigation'
 }
 
 export const RootNavigation = createSwitchNavigator(RouteConfigs, SwitchNavigatorConfig);

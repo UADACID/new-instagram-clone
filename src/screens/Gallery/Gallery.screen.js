@@ -8,7 +8,7 @@ import styles from './Gallery.style';
 export default class Gallery extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    header: () => (<HeaderAddPhoto title="Gallery" />)
+    header: null
   })
 
   componentDidMount(){
