@@ -8,6 +8,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff'
   },
+  scrollContainer: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    height: height - 25
+  },
   language: {
     color: '#999',
     fontSize: 14,
@@ -17,7 +22,7 @@ export default StyleSheet.create({
     fontSize: 50,
     fontFamily: 'Billabong',
     color: '#000',
-    marginTop: height / 7
+    marginTop: height / 9.5
   },
   textInput: {
     paddingLeft: 15,
@@ -31,7 +36,7 @@ export default StyleSheet.create({
   },
   button: {
     marginTop: 15,
-    marginLeft: 16,
+    // marginLeft: 16,
     width: width - 32,
     height: 48,
     borderRadius: 2,
@@ -82,7 +87,7 @@ export default StyleSheet.create({
     color: '#8d8d8d'
   },
   buttonLoginWithFb: {
-    marginLeft: 16,
+    // marginLeft: 16,
     flexDirection: 'row',
     marginTop: 15,
     width: width - 32,

@@ -1,4 +1,5 @@
 import { createSwitchNavigator } from 'react-navigation';
+import React, { Component } from 'react';
 import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware
@@ -8,6 +9,9 @@ import { BackHandler } from 'react-native';
 
 import UnAuthNavigation from './unauthorizedNavigation';
 import AuthNavigation from './authorizedNavigation';
+
+// UTILS
+import handleBackAndroid from '../utils/CustomHandleBackAndroid';
 
 const RouteConfigs = {
   UnAuthNavigation: {
@@ -29,11 +33,13 @@ export const middleware = createReactNavigationReduxMiddleware(
   state => state.nav,
 );
 
-const App = reduxifyNavigator(RootNavigation, "root");
+const AppNavigation = reduxifyNavigator(RootNavigation, "root");
 
 const mapStateToProps = (state) => ({
   state: state.nav,
 });
-const AppWithNavigationState = connect(mapStateToProps)(App);
+
+
+const AppWithNavigationState = connect(mapStateToProps)(handleBackAndroid(AppNavigation));
 
 export default AppWithNavigationState;

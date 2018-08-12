@@ -6,7 +6,7 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native';
-import { Icon, Button } from 'native-base';
+import { Icon, Button, Content } from 'native-base';
 
 import styles from './Login.style';
 import HeaderAddPhoto from '../../components/HeaderAddPhoto';
@@ -42,6 +42,7 @@ export default class Login extends Component {
   render(){
     return (
       <View style={styles.container}>
+      <Content contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.language}>
           Indonesia (Indonesia)
         </Text>
@@ -89,6 +90,7 @@ export default class Login extends Component {
             Tidak punya akun? <Text onPress={this.onPressRegister} style={styles.footerTextBold}>Buat Akun</Text>
           </Text>
         </View>
+      </Content>
       </View>
     );
   }

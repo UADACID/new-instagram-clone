@@ -8,7 +8,9 @@ export default class CircleStory extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerImage}>
-          <Image style={styles.image} source={{ uri }}/>
+          <View style={styles.wraperImage}>
+            <Image style={styles.image} source={{ uri }}/>
+          </View>
         </View>
         <Text style={styles.title}>{name}</Text>
       </View>
@@ -30,6 +32,14 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     margin: 10,
     backgroundColor: '#c12184'
+  },
+  wraperImage: {
+    height: 65,
+    width: 65,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 40,
   },
   image: {
     height: 65,

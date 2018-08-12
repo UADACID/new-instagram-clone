@@ -16,6 +16,8 @@ const UnAuthNavigation = createStackNavigator({
       header: null,
     })
   }
-}, {});
+}, {
+  // initialRouteName: 'Register'
+});
 
 export default UnAuthNavigation;
