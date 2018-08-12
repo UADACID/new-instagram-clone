@@ -101,7 +101,7 @@ const TabDashboard = createBottomTabNavigator({
   tabBarOptions : {
     showLabel : false
   },
-  initialRouteName: 'Search'
+  // initialRouteName: 'Search'
 })
 
 const AppNavigation = createMaterialTopTabNavigator({

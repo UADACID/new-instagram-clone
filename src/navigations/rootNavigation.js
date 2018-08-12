@@ -10,11 +10,11 @@ import UnAuthNavigation from './unauthorizedNavigation';
 import AuthNavigation from './authorizedNavigation';
 
 const RouteConfigs = {
-  AuthNavigation: {
-    screen: AuthNavigation
-  },
   UnAuthNavigation: {
     screen: UnAuthNavigation
+  },
+  AuthNavigation: {
+    screen: AuthNavigation
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ScrollView, FlatList } from 'react-native';
+import { View, StatusBar, ScrollView, FlatList, Text, Dimensions } from 'react-native';
 
 import styles from './Home.style';
 import HeaderHome from '../../components/HeaderHome';
@@ -12,13 +12,13 @@ export default class Home extends Component {
     header: () => (<HeaderHome />)
   })
 
-  componentDidMount(){
+  componentDidMount() {
 
   }
 
   _keyExtractor = (item, index) => index.toString();
 
-  _renderItem = ({item}) => (
+  _renderItem = ({ item }) => (
     <FeedItem
       title={item.title}
       uri={item.uri}
@@ -27,16 +27,17 @@ export default class Home extends Component {
     />
   );
 
-  render(){
+  render() {
     const { feeds, stories } = this.props;
+
     return (
       <ScrollView>
-      <View style={styles.container}>
-        <StatusBar
-          backgroundColor="#999"
-          barStyle="light-content"
-        />
-        <View>
+        <View style={styles.container}>
+          <StatusBar
+            backgroundColor="#999"
+            barStyle="light-content"
+          />
+          <View>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {
               stories.map((item, index) => (
@@ -50,7 +51,7 @@ export default class Home extends Component {
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
-      </View>
+        </View>
       </ScrollView>
     );
   }

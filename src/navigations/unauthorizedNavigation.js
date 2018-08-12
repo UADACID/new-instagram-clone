@@ -5,10 +5,16 @@ import Register from '../screens/Register/Register.container';
 
 const UnAuthNavigation = createStackNavigator({
   Login: {
-    screen: Login
+    screen: Login,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    })
   },
   Register: {
-    screen: Register
+    screen: Register,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    })
   }
 }, {});
 
