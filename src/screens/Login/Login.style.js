@@ -31,6 +31,7 @@ export default StyleSheet.create({
   },
   button: {
     marginTop: 15,
+    marginLeft: 16,
     width: width - 32,
     height: 48,
     borderRadius: 2,
@@ -81,6 +82,7 @@ export default StyleSheet.create({
     color: '#8d8d8d'
   },
   buttonLoginWithFb: {
+    marginLeft: 16,
     flexDirection: 'row',
     marginTop: 15,
     width: width - 32,
@@ -115,6 +117,8 @@ export default StyleSheet.create({
   },
   footerTextBold: {
     color: '#000',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingHorizontal: 10,
+    borderWidth: 1
   }
 });

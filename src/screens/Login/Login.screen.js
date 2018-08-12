@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Alert,
   TextInput,
   TouchableOpacity
 } from 'react-native';
-import { Icon } from 'native-base';
+import { Icon, Button } from 'native-base';
 
 import styles from './Login.style';
 import HeaderAddPhoto from '../../components/HeaderAddPhoto';
@@ -18,6 +19,24 @@ export default class Login extends Component {
 
   componentDidMount(){
 
+  }
+
+  onPressRegister = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Register')
+  }
+
+  onPressLogin = () => {
+    const { navigation } = this.props;
+    navigation.navigate('AuthNavigation')
+  }
+
+  onPressLoginFb = () => {
+    Alert.alert('under development')
+  }
+
+  onPressInfo = () => {
+    Alert.alert('under development')
   }
 
   render(){
@@ -39,12 +58,16 @@ export default class Login extends Component {
           placeholder="Kata sandi"
           placeholderTextColor="#999"
         />
-        <TouchableOpacity style={styles.button}>
+        <Button
+          transparent
+          style={styles.button}
+          onPress={this.onPressLogin}
+        >
           <Text style={styles.textLogin}>Masuk</Text>
-        </TouchableOpacity>
+        </Button>
         <View style={styles.informationWraper}>
           <Text style={styles.informationText}>
-            Lupa detail informasi masuk anda? <Text style={styles.informationBold}>Dapatkan bantuan untuk</Text>
+            Lupa detail informasi masuk anda? <Text onPress={this.onPressInfo} style={styles.informationBold}>Dapatkan bantuan untuk</Text>
           </Text>
           <Text style={styles.informationBold}>masuk</Text>
         </View>
@@ -54,13 +77,16 @@ export default class Login extends Component {
             <Text style={styles.textSparator}>ATAU</Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.buttonLoginWithFb}>
+        <Button
+          style={styles.buttonLoginWithFb}
+          onPress={this.onPressLoginFb}
+        >
           <Icon name="logo-facebook" style={styles.iconFb}/>
           <Text style={styles.textButtonFb}>Masuk dengan facebook</Text>
-        </TouchableOpacity>
+        </Button>
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            Tidak punya akun? <Text style={styles.footerTextBold}>Buat Akun</Text>
+            Tidak punya akun? <Text onPress={this.onPressRegister} style={styles.footerTextBold}>Buat Akun</Text>
           </Text>
         </View>
       </View>
